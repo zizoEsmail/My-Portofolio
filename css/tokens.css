@@ -1,0 +1,55 @@
+/* ================================================================
+   tokens.css  —  Design System: Palette · Type · Space · Motion
+   ================================================================ */
+
+:root {
+  /* ── Palette ─────────────────────────────────────────────── */
+  --ink-0:   #ffffff;
+  --ink-1:   #f0f4fa;
+  --ink-2:   #9aadbe;
+  --ink-3:   #56687a;
+  --ink-4:   #2a3340;
+
+  --void:    #04060d;
+  --void-1:  #080c17;
+  --void-2:  #0c1220;
+  --void-3:  #111827;
+
+  --blue:    #4e9fd4;
+  --blue-hi: #90c8f0;
+  --blue-lo: rgba(78,159,212,0.12);
+
+  --indigo:  #6366f1;
+  --indigo-lo: rgba(99,102,241,0.10);
+
+  --green:   #22c55e;
+
+  --surface: rgba(255,255,255,0.032);
+  --surface-hi: rgba(255,255,255,0.06);
+  --border:  rgba(255,255,255,0.068);
+  --border-hi: rgba(78,159,212,0.38);
+
+  --glow-b:  rgba(78,159,212,0.18);
+  --glow-i:  rgba(99,102,241,0.18);
+
+  /* ── Type Scale ──────────────────────────────────────────── */
+  --font-sans:  'Inter', 'Cabinet Grotesk', system-ui, sans-serif;
+  --font-display: 'Syne', 'Inter', sans-serif;
+  --font-mono:  'JetBrains Mono', 'DM Mono', monospace;
+
+  /* ── Space ───────────────────────────────────────────────── */
+  --px:   clamp(20px, 5vw, 88px);
+  --py:   clamp(72px, 11vh, 128px);
+
+  /* ── Radius ──────────────────────────────────────────────── */
+  --r-1: 6px;
+  --r-2: 12px;
+  --r-3: 20px;
+  --r-4: 32px;
+
+  /* ── Motion ──────────────────────────────────────────────── */
+  --spring:     cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-io:    cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in:    cubic-bezier(0.64, 0, 0.78, 0);
+}

@@ -1,0 +1,116 @@
+/* ═══════════════════════════════════════════════════════════════
+   animations.css  —  Keyframes & Animation Utilities
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── LOADER ── */
+@keyframes loader-bar-fill {
+  0%   { width: 0%; }
+  60%  { width: 72%; }
+  100% { width: 100%; }
+}
+@keyframes loader-fade-char {
+  0%   { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── GRADIENT SHIMMER ── */
+@keyframes shimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── PULSE ── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 16px var(--glow-b), 0 0 32px var(--glow-v); }
+  50%       { box-shadow: 0 0 36px var(--glow-b), 0 0 64px var(--glow-v); }
+}
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0   rgba(88,166,230,0.6); }
+  50%       { box-shadow: 0 0 0 6px rgba(88,166,230,0); }
+}
+
+/* ── RIPPLE RINGS ── */
+@keyframes ripple {
+  0%   { transform: scale(1);   opacity: 0.55; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
+@keyframes ripple-contact {
+  0%   { transform: scale(1);   opacity: 0.45; }
+  100% { transform: scale(3.4); opacity: 0; }
+}
+
+/* ── 3D FLOAT ── */
+@keyframes float3d {
+  0%   { transform: rotateY(-10deg) rotateX(5deg)  translateY(0px); }
+  25%  { transform: rotateY(6deg)   rotateX(-3deg) translateY(-10px); }
+  50%  { transform: rotateY(11deg)  rotateX(5deg)  translateY(-5px); }
+  75%  { transform: rotateY(-5deg)  rotateX(-5deg) translateY(-12px); }
+  100% { transform: rotateY(-10deg) rotateX(5deg)  translateY(0px); }
+}
+
+/* ── MARQUEE ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── SCROLL BOUNCE ── */
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0px); }
+  50%       { transform: translateX(-50%) translateY(7px); }
+}
+
+/* ── GRADIENT ORB DRIFT ── */
+@keyframes orb-drift-1 {
+  0%, 100% { transform: translate(0px,   0px)   scale(1); }
+  33%       { transform: translate(60px,  -40px) scale(1.08); }
+  66%       { transform: translate(-30px, 50px)  scale(0.94); }
+}
+@keyframes orb-drift-2 {
+  0%, 100% { transform: translate(0px,   0px)   scale(1); }
+  33%       { transform: translate(-50px, 30px)  scale(1.06); }
+  66%       { transform: translate(40px,  -60px) scale(0.96); }
+}
+@keyframes orb-drift-3 {
+  0%, 100% { transform: translate(0px,  0px)   scale(1); }
+  50%       { transform: translate(30px, -30px) scale(1.1); }
+}
+
+/* ── SKILL BAR FILL ── */
+/* width set via JS / data-attr; transition handles animation */
+
+/* ── REVEAL (JS-driven — class toggled by IntersectionObserver) ── */
+.reveal {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+.reveal.from-up    { transform: translateY(48px); }
+.reveal.from-left  { transform: translateX(-48px); }
+.reveal.from-right { transform: translateX(48px); }
+.reveal.from-scale { transform: scale(0.94); }
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+/* stagger children */
+.reveal-group > * {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.reveal-group.visible > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-group.visible > *:nth-child(2) { transition-delay: 0.13s; }
+.reveal-group.visible > *:nth-child(3) { transition-delay: 0.21s; }
+.reveal-group.visible > *:nth-child(4) { transition-delay: 0.29s; }
+.reveal-group.visible > *:nth-child(5) { transition-delay: 0.37s; }
+.reveal-group.visible > *:nth-child(6) { transition-delay: 0.45s; }
+.reveal-group.visible > * {
+  opacity: 1;
+  transform: none;
+}

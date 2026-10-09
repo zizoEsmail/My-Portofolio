@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Abdelaziz Esmail — Software Engineering student and Frontend Developer based in Maadi, Cairo. Building scalable web apps with React.js, Next.js &amp; ASP.NET." />
+  <title>Abdelaziz Esmail — Software Engineer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+</head>
+<body>
+
+<!-- ╔══════════════════════════════════════════════════════╗
+     ║  LOADER                                              ║
+     ╚══════════════════════════════════════════════════════╝ -->
+<div id="loader" role="status" aria-label="Loading">
+  <div class="ld-logo" aria-hidden="true">
+    <span class="lc">A</span><span class="lc">E</span>
+  </div>
+  <div class="ld-bar-wrap">
+    <div class="ld-bar-fill"></div>
+  </div>
+  <span class="ld-status">Loading portfolio</span>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════╗
+     ║  CURSOR                                              ║
+     ╚══════════════════════════════════════════════════════╝ -->
+<div id="cur-dot"  aria-hidden="true"></div>
+<div id="cur-ring" aria-hidden="true"></div>
+
+<!-- ╔══════════════════════════════════════════════════════╗
+     ║  BACKGROUND                                          ║
+     ╚══════════════════════════════════════════════════════╝ -->
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+<div class="orb-field" aria-hidden="true">
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="orb orb-c"></div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════╗
+     ║  NAV                                                 ║
+     ╚══════════════════════════════════════════════════════╝ -->
+<header>
+  <nav id="nav" role="navigation" aria-label="Main">
+    <a href="#hero" class="nav-logo">
+      Abdelaziz<span class="logo-dot">.</span>dev
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:abdelaziz.esmail.dev@gmail.com" class="nav-hire">
+      Available for Internships
+    </a>
+  </nav>
+</header>
+
+<!-- ╔══════════════════════════════════════════════════════╗
+     ║  MAIN                                                ║
+     ╚══════════════════════════════════════════════════════╝ -->
+<main>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════════ -->
+  <section id="hero" class="sec wrap" aria-label="Introduction">
+
+    <div class="hero-left">
+      <div class="avail-tag">
+        <span class="avail-dot"></span>
+        Open to internship opportunities
+      </div>
+
+      <!-- JS splits each .ln into .ch spans for stagger reveal -->
+      <h1 class="hero-name" aria-label="Abdelaziz Esmail">
+        <span class="ln">Abdelaziz</span>
+        <span class="ln">Esmail</span>
+      </h1>
+
+      <p class="hero-role">Frontend Developer &amp; CS Student</p>
+
+      <p class="hero-desc">
+        Software Engineering student at Misr Higher Institute, Cairo.
+        I build scalable, accessible web applications — from
+        React&nbsp;frontends to ASP.NET backends — with a sharp focus
+        on performance and clean architecture.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-fill">
+          See my work
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+
+    <!-- 3D floating identity card -->
+    <div class="hero-card-col" aria-hidden="true">
+      <div class="hero-card">
+        <div class="av-wrap">
+          <div class="av-ring"></div>
+          <div class="av-ring"></div>
+          <div class="av-ring"></div>
+          <div class="av-circle">AE</div>
+        </div>
+        <div class="card-info">
+          <div class="card-name">Abdelaziz Esmail</div>
+          <div class="card-role-lbl">SOFTWARE ENGINEER</div>
+        </div>
+        <div class="card-grid">
+          <div class="card-stat">
+            <div class="cs-val" data-count="2">0</div>
+            <div class="cs-lbl">PROJECTS</div>
+          </div>
+          <div class="card-stat">
+            <div class="cs-val">2026</div>
+            <div class="cs-lbl">GRAD YEAR</div>
+          </div>
+          <div class="card-stat">
+            <div class="cs-val" data-count="94.5">0%</div>
+            <div class="cs-lbl">NTI GRADE</div>
+          </div>
+          <div class="card-stat">
+            <div class="cs-val">15+</div>
+            <div class="cs-lbl">TECH SKILLS</div>
+          </div>
+        </div>
+        <div class="card-chips">
+          <span class="card-chip">React.js</span>
+          <span class="card-chip">Next.js</span>
+          <span class="card-chip">ASP.NET</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+      Scroll
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MARQUEE
+  ═══════════════════════════════════════════════════════ -->
+  <div class="marquee-belt" aria-hidden="true">
+    <div class="marquee-track" id="marquee-track"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       ABOUT / EXPERIENCE
+  ═══════════════════════════════════════════════════════ -->
+  <section id="about" class="sec" aria-label="About and experience">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal="fade-up">Background</span>
+      <h2 class="display" style="font-size:clamp(2rem,4.5vw,3.4rem); margin-bottom:56px;"
+          data-reveal="fade-up" data-delay="80">
+        Training &amp;<br/>Experience
+      </h2>
+
+      <div class="inner">
+
+        <!-- Left: bio + stats -->
+        <div class="about-left" data-reveal="fade-left">
+          <p class="about-bio">
+            I'm a Software Engineering student based in Maadi, Cairo, with a
+            strong foundation in OOP, data structures, and algorithms. My
+            primary focus is frontend development — building React and Next.js
+            applications with clean architecture and great UX — while growing
+            my full-stack skills through ASP.NET and SQL.
+          </p>
+          <div class="about-stats" data-stagger data-stagger-gap="90">
+            <div class="a-stat">
+              <div class="a-stat-val" data-count="120">0</div>
+              <div class="a-stat-lbl">Hours of NTI training</div>
+            </div>
+            <div class="a-stat">
+              <div class="a-stat-val" data-count="94">0</div>
+              <div class="a-stat-lbl">% NTI final grade</div>
+            </div>
+            <div class="a-stat">
+              <div class="a-stat-val" data-count="2">0</div>
+              <div class="a-stat-lbl">Production projects</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: experience timeline -->
+        <div class="exp-list" data-reveal="fade-right">
+
+          <!-- DEPI -->
+          <div class="exp-entry">
+            <div class="exp-line-col">
+              <div class="exp-node"></div>
+              <div class="exp-vline"></div>
+            </div>
+            <div class="exp-body">
+              <div class="exp-period">Jun 2025 — Dec 2025</div>
+              <div class="exp-title">Full Stack .NET Web Developer</div>
+              <div class="exp-org">Digital Egypt Pioneers Initiative (DEPI)</div>
+              <p class="exp-desc">
+                Built responsive web applications using HTML, CSS, JavaScript,
+                C#, ASP.NET, and SQL Server. Gained practical experience in API
+                integration and component-based architecture through structured
+                real-world projects.
+              </p>
+              <div class="exp-pills">
+                <span class="exp-pill">C# / ASP.NET</span>
+                <span class="exp-pill">SQL Server</span>
+                <span class="exp-pill">JavaScript</span>
+                <span class="exp-pill">REST APIs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- NTI -->
+          <div class="exp-entry">
+            <div class="exp-line-col">
+              <div class="exp-node"></div>
+              <div class="exp-vline"></div>
+            </div>
+            <div class="exp-body">
+              <div class="exp-period">Aug 2025 — Sep 2025</div>
+              <div class="exp-title">Web Designer Training</div>
+              <div class="exp-org">National Telecommunication Institute (NTI)</div>
+              <p class="exp-desc">
+                Completed a 120-hour Web Design programme covering HTML, CSS,
+                and JavaScript through practical projects. Achieved a final
+                grade of <strong>94.5%</strong>.
+              </p>
+              <div class="exp-pills">
+                <span class="exp-pill">HTML5</span>
+                <span class="exp-pill">CSS3</span>
+                <span class="exp-pill">JavaScript</span>
+                <span class="exp-pill">UI Design</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SKILLS
+  ═══════════════════════════════════════════════════════ -->
+  <section id="skills" class="sec" aria-label="Technical skills">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal="fade-up">Capabilities</span>
+      <h2 class="display" style="font-size:clamp(2rem,4.5vw,3.4rem); margin-bottom:56px;"
+          data-reveal="fade-up" data-delay="80">
+        Technical<br/>Arsenal
+      </h2>
+
+      <div class="skills-cols">
+
+        <!-- Frontend -->
+        <div class="skill-panel" data-reveal="fade-left">
+          <div class="skill-panel-title">Frontend</div>
+          <div class="skill-rows">
+            <div class="skill-row">
+              <div class="skill-row-top">
+                <span class="skill-row-name">React.js / Next.js</span>
+                <span class="skill-row-pct">90%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" data-width="90"></div>
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-row-top">
+                <span class="skill-row-name">TypeScript / JavaScript</span>
+                <span class="skill-row-pct">85%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" data-width="85"></div>
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-row-top">
+                <span class="skill-row-name">Tailwind CSS / Sass</span>
+                <span class="skill-row-pct">88%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" data-width="88"></div>
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-row-top">
+                <span class="skill-row-name">Redux / State Management</span>
+                <span class="skill-row-pct">80%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" data-width="80"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend & Tools -->
+        <div class="skill-panel" data-reveal="fade-right">
+          <div class="skill-panel-title">Backend &amp; Tools</div>
+          <div class="skill-rows">
+            <div class="skill-row">
+              <div class="skill-row-top">
+                <span class="skill-row-name">C# / ASP.NET / .NET</span>
+                <span class="skill-row-pct">78%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" data-width="78"></div>
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-row-top">
+                <span class="skill-row-name">SQL / Database Design</span>
+                <span class="skill-row-pct">75%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" data-width="75"></div>
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-row-top">
+                <span class="skill-row-name">Git / GitHub</span>
+                <span class="skill-row-pct">85%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" data-width="85"></div>
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-row-top">
+                <span class="skill-row-name">C++ / OOP / DSA</span>
+                <span class="skill-row-pct">80%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" data-width="80"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tag cloud -->
+      <div class="tag-panel" data-reveal="fade-up">
+        <div class="skill-panel-title" style="margin-bottom:20px;">All technologies</div>
+        <div class="tag-cloud" data-stagger data-stagger-gap="35">
+          <span class="t-tag">JavaScript</span>
+          <span class="t-tag">TypeScript</span>
+          <span class="t-tag">React.js</span>
+          <span class="t-tag">Next.js</span>
+          <span class="t-tag">Redux</span>
+          <span class="t-tag">HTML5</span>
+          <span class="t-tag">CSS3</span>
+          <span class="t-tag">Tailwind CSS</span>
+          <span class="t-tag">Sass</span>
+          <span class="t-tag">Bootstrap</span>
+          <span class="t-tag">Responsive Design</span>
+          <span class="t-tag">Performance Optimization</span>
+          <span class="t-tag">Lazy Loading</span>
+          <span class="t-tag">C#</span>
+          <span class="t-tag">ASP.NET</span>
+          <span class="t-tag">Entity Framework Core</span>
+          <span class="t-tag">SQL Server</span>
+          <span class="t-tag">C++</span>
+          <span class="t-tag">Git</span>
+          <span class="t-tag">GitHub</span>
+          <span class="t-tag">REST APIs</span>
+          <span class="t-tag">OOP</span>
+          <span class="t-tag">Data Structures &amp; Algorithms</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PROJECTS
+  ═══════════════════════════════════════════════════════ -->
+  <section id="projects" class="sec" aria-label="Projects">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal="fade-up">Work</span>
+      <h2 class="display" style="font-size:clamp(2rem,4.5vw,3.4rem); margin-bottom:56px;"
+          data-reveal="fade-up" data-delay="80">
+        Featured<br/>Projects
+      </h2>
+
+      <div class="proj-grid">
+
+        <!-- Movie App -->
+        <article class="proj-card" data-reveal="fade-left">
+          <div class="proj-header">
+            <div class="proj-icon" aria-hidden="true">🎬</div>
+            <a href="#projects" class="proj-ext" aria-label="View Movie App">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+              </svg>
+            </a>
+          </div>
+          <h3 class="proj-name">Movie App</h3>
+          <p class="proj-desc">
+            A responsive movie discovery platform for exploring trending films,
+            TV shows, and actors — powered by live API data.
+          </p>
+          <ul class="proj-bullets" aria-label="Key features">
+            <li>TMDB API integration — trending, ratings, release dates</li>
+            <li>Search across movies and TV shows in real time</li>
+            <li>Dynamic detail pages with related recommendations</li>
+            <li>Reusable component architecture with React Hooks</li>
+            <li>Optimized performance with lazy loading</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="proj-tag">React.js</span>
+            <span class="proj-tag">Tailwind CSS</span>
+            <span class="proj-tag">TMDB API</span>
+            <span class="proj-tag">React Hooks</span>
+          </div>
+        </article>
+
+        <!-- Fresh Cart -->
+        <article class="proj-card" data-reveal="fade-right">
+          <div class="proj-header">
+            <div class="proj-icon" aria-hidden="true">🛒</div>
+            <a href="#projects" class="proj-ext" aria-label="View Fresh Cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+              </svg>
+            </a>
+          </div>
+          <h3 class="proj-name">Fresh Cart</h3>
+          <p class="proj-desc">
+            A fully responsive e-commerce web app with product browsing,
+            intelligent filtering, and a complete cart management system.
+          </p>
+          <ul class="proj-bullets" aria-label="Key features">
+            <li>Dynamic product listing via RESTful API</li>
+            <li>Full cart — add, remove, quantity control, total</li>
+            <li>Modular React.js architecture for scalability</li>
+            <li>Performance-optimized for smooth experience</li>
+            <li>Clean, accessible UI with Tailwind CSS</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="proj-tag">React.js</span>
+            <span class="proj-tag">Tailwind CSS</span>
+            <span class="proj-tag">REST API</span>
+            <span class="proj-tag">E-Commerce</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       EDUCATION
+  ═══════════════════════════════════════════════════════ -->
+  <section id="education" class="sec" aria-label="Education">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal="fade-up">Studies</span>
+      <h2 class="display" style="font-size:clamp(2rem,4.5vw,3.4rem); margin-bottom:48px;"
+          data-reveal="fade-up" data-delay="80">
+        Education
+      </h2>
+      <div class="edu-card" data-reveal="fade-up">
+        <div class="edu-icon" aria-hidden="true">🎓</div>
+        <div>
+          <div class="edu-school">
+            Misr Higher Institute for Engineering and Technology
+          </div>
+          <div class="edu-degree">
+            Faculty of Computers and Informatics — Software Engineering
+          </div>
+          <div class="edu-meta">
+            <span class="edu-period">Sep 2023 — Present</span>
+            <span class="edu-badge">Expected graduation 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════════════════════ -->
+  <section id="contact" class="sec" aria-label="Contact">
+    <div class="wrap" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+
+      <div class="contact-orb-wrap" aria-hidden="true">
+        <div class="c-ripple"></div>
+        <div class="c-ripple"></div>
+        <div class="c-ripple"></div>
+        <div class="contact-orb-inner">✉</div>
+      </div>
+
+      <h2 class="contact-heading display" data-reveal="fade-up">
+        Let's build<br/>together
+      </h2>
+      <p class="contact-sub" data-reveal="fade-up" data-delay="100">
+        I'm actively looking for internship opportunities where I can
+        contribute, learn from experienced engineers, and ship real products.
+        If that sounds like a fit — reach out.
+      </p>
+
+      <div class="contact-links" data-stagger data-stagger-gap="80">
+        <a href="mailto:abdelaziz.esmail.dev@gmail.com" class="c-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 8l9 6 9-6M3 8v10a1 1 0 001 1h16a1 1 0 001-1V8M3 8a1 1 0 011-1h16a1 1 0 011 1"/>
+          </svg>
+          abdelaziz.esmail.dev@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/abdelaziz-esmail" target="_blank" rel="noopener noreferrer" class="c-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="4"/>
+            <path d="M7 10v7M7 7v.01M11 10v7m0-5a3 3 0 016 0v5"/>
+          </svg>
+          linkedin.com/in/abdelaziz-esmail
+        </a>
+        <a href="tel:+201544406259" class="c-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.09 3h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          +20 154 440 6259
+        </a>
+      </div>
+
+      <a href="mailto:abdelaziz.esmail.dev@gmail.com" class="btn btn-fill">
+        Send a message
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ╔══════════════════════════════════════════════════════╗
+     ║  FOOTER                                              ║
+     ╚══════════════════════════════════════════════════════╝ -->
+<footer id="footer">
+  <div class="footer-left">
+    © 2025 Abdelaziz Esmail Abdelaziz — Maadi, Cairo, EG
+  </div>
+  <div class="footer-right">
+    <a href="https://linkedin.com/in/abdelaziz-esmail" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:abdelaziz.esmail.dev@gmail.com">Email</a>
+    <a href="tel:+201544406259">Phone</a>
+  </div>
+</footer>
+
+<!-- ╔══════════════════════════════════════════════════════╗
+     ║  SCRIPTS  (order matters)                            ║
+     ╚══════════════════════════════════════════════════════╝ -->
+<script src="js/nav.js"></script>
+<script src="js/cursor.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/marquee.js"></script>
+<script src="js/scroll.js"></script>
+
+</body>
+</html>

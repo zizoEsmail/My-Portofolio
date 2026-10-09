@@ -1,0 +1,238 @@
+/* ================================================================
+   base.css  —  Reset · Body · Typography · Layout · Nav · Footer
+   ================================================================ */
+
+/* ── Reset ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-sans);
+  background: var(--void);
+  color: var(--ink-1);
+  overflow-x: hidden;
+  cursor: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+a  { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+button { font: inherit; cursor: none; border: none; background: none; }
+img, svg, canvas { display: block; }
+strong { font-weight: 600; color: var(--ink-0); }
+
+/* ── Grain overlay ───────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 1000;
+  pointer-events: none;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  opacity: 0.022;
+  mix-blend-mode: overlay;
+}
+
+/* ── Layout primitives ───────────────────────────────────── */
+main { position: relative; z-index: 1; }
+
+.wrap {
+  width: 100%;
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: var(--px);
+}
+
+section.sec {
+  padding-block: var(--py);
+}
+
+/* ── Type helpers ────────────────────────────────────────── */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  color: var(--blue);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.035em;
+  color: var(--ink-0);
+}
+
+.body-lg {
+  font-size: clamp(0.96rem, 1.4vw, 1.06rem);
+  color: var(--ink-2);
+  line-height: 1.78;
+  max-width: 52ch;
+}
+
+/* ── Divider ─────────────────────────────────────────────── */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Glass card ──────────────────────────────────────────── */
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 24px;
+  border-radius: var(--r-2);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+  transition: transform 0.25s var(--spring), box-shadow 0.25s;
+}
+.btn-fill {
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 0 0 0 1px rgba(78,159,212,0.4), 0 4px 20px rgba(78,159,212,0.25);
+}
+.btn-fill:hover {
+  box-shadow: 0 0 0 1px rgba(78,159,212,0.6), 0 8px 32px rgba(78,159,212,0.35);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-2);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+  color: var(--ink-0);
+  border-color: rgba(255,255,255,0.18);
+  background: var(--surface-hi);
+}
+/* ripple on click */
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.12);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.btn:active::before { opacity: 1; }
+
+/* ── Navigation ──────────────────────────────────────────── */
+#nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  padding: 0 var(--px);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s var(--ease-out), border-color 0.4s, height 0.4s var(--spring);
+  border-bottom: 1px solid transparent;
+}
+#nav.stuck {
+  background: rgba(4,6,13,0.82);
+  backdrop-filter: blur(28px) saturate(140%);
+  -webkit-backdrop-filter: blur(28px) saturate(140%);
+  border-bottom-color: var(--border);
+  height: 52px;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink-0);
+  position: relative;
+}
+.nav-logo .logo-dot {
+  color: var(--blue);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink-3);
+  padding: 6px 12px;
+  border-radius: var(--r-1);
+  transition: color 0.2s, background 0.2s;
+  position: relative;
+}
+.nav-links a:hover { color: var(--ink-1); background: var(--surface); }
+.nav-links a.active { color: var(--ink-1); }
+
+.nav-hire {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--blue-hi);
+  padding: 7px 16px;
+  border-radius: var(--r-1);
+  border: 1px solid rgba(78,159,212,0.3);
+  background: rgba(78,159,212,0.07);
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.nav-hire:hover {
+  background: rgba(78,159,212,0.14);
+  border-color: rgba(78,159,212,0.55);
+  box-shadow: 0 0 16px rgba(78,159,212,0.2);
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+#footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid var(--border);
+  padding: 32px var(--px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer-left {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--ink-4);
+  letter-spacing: 0.06em;
+}
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer-right a {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--ink-4);
+  letter-spacing: 0.06em;
+  transition: color 0.2s;
+}
+.footer-right a:hover { color: var(--ink-2); }
+
+/* ── Responsive base ─────────────────────────────────────── */
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  #nav { padding: 0 20px; }
+}
